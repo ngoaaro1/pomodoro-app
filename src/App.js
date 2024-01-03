@@ -13,7 +13,7 @@ function App() {
       gap-y-8
       ">
       <h className="text-3xl">pomodoro</h>
-      <Display switch={true}/>
+      <Display switch={false}/>
     </div>
   );
 }
