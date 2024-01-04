@@ -14,10 +14,17 @@ function Display(props) {
             shadow-[0px_0px_15px_10px_#393e79]
         ">
             <div className=
-                {props.switch ? 'text-[#FF6D88] duration-1000 transition' : 
-                'text-white'}>work</div>
-            <div>break</div>
+            {props.wMins === 0 && props.wSecs === 0 ? 'text-white duration-1000 transition':
+            'text-[#FF6D88] duration-1000 transition'}>
+    
+                work</div>
+            <div className=
+            {props.bMins === 0 && props.bSecs === 0 ? 'text-white duration-1000 transition':
+            'text-[#FF6D88] duration-1000 transition'}>
+                break
+            </div>
         </div>
+        
     );
 }
 
