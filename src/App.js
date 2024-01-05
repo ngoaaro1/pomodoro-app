@@ -15,7 +15,7 @@ function App() {
       w-screen
       duration-1000
       transition
-      bg-${bg}
+      bg-[#1f2241]
       text-white
       flex 
       items-center 
