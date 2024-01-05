@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 function useCountdown() {
-    const [workSeconds, setWorkSeconds] = useState(5);
-    const [workMinutes, setWorkMinutes] = useState(0);
+    const [workSeconds, setWorkSeconds] = useState(0);
+    const [workMinutes, setWorkMinutes] = useState(25);
     const [breakSeconds, setBreakSeconds] = useState(0);
     const [breakMinutes, setBreakMinutes] = useState(0);
     const [isWorking, setIsWorking] = useState(true);
