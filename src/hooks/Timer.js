@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import useSound from "use-sound";
+import bell from "../sound/bell.mp3";
 
 function useCountdown() {
     const [workSeconds, setWorkSeconds] = useState(0);
@@ -7,6 +9,8 @@ function useCountdown() {
     const [breakMinutes, setBreakMinutes] = useState(0);
     const [isWorking, setIsWorking] = useState(true);
     const [paused, setPaused] = useState(true);
+
+    const[play] = useSound(bell);
 
     let timer;
     
@@ -18,6 +22,7 @@ function useCountdown() {
             {
                 if (workMinutes === 0 && workSeconds === 1)
                 {
+                    play();
                     setIsWorking(false);
                     setWorkMinutes(0);
                     setWorkSeconds(0);
@@ -41,11 +46,12 @@ function useCountdown() {
             {
                 if (breakMinutes === 0 && breakSeconds === 1)
                 {
+                    play();
                     setIsWorking(true);
                     setBreakMinutes(0);
                     setBreakSeconds(0);
-                    setWorkMinutes(0);
-                    setWorkSeconds(10);
+                    setWorkMinutes(25);
+                    setWorkSeconds(0);
                 }
                 else
                 {
