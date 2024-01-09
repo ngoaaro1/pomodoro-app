@@ -23,7 +23,13 @@ function TimerContainer(props) {
             duration-1000 
             transition ` + props.rColor
             }>
-                {props.isWorking ? props.wMins:props.bMins} : {props.isWorking ? props.wSecs:props.bSecs}
+                {props.isWorking ?  
+                (props.wMins<10 ? "0"+props.wMins:props.wMins) :
+                (props.bMins<10 ? "0"+props.bMins:props.bMins)} 
+                : 
+                {props.isWorking ? 
+                (props.wSecs<10? "0"+props.wSecs:props.wSecs) :
+                (props.bSecs<10? "0"+props.bSecs:props.bSecs)}
             </div>
         </div>
     )

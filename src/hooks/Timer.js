@@ -68,19 +68,44 @@ function useCountdown() {
     },[workMinutes, workSeconds, breakMinutes, breakSeconds, isWorking, paused]);
 
     const restart = () => {
-        setWorkMinutes(25);
+        if(isWorking)
+        {
+            setWorkMinutes(25);
+        }
+        else
+        {
+            setBreakMinutes(5);
+        }
         setWorkSeconds(0);
-        setBreakMinutes(0);
         setBreakSeconds(0);
-        setIsWorking(true);
         setPaused(true);
     };
     const pause = () => {
         setPaused((prevPaused) => !prevPaused);
     };
 
+    const swap = () => {
+        if (isWorking)
+        {
+            setWorkMinutes(0);
+            setWorkSeconds(0);
+            setBreakMinutes(5);
+            setBreakSeconds(0);
+            setIsWorking(false);
+        }
+        else
+        {
+            setWorkMinutes(25);
+            setWorkSeconds(0);
+            setBreakMinutes(0);
+            setBreakSeconds(0);
+            setIsWorking(true);
+        }
+        setPaused(true);
+    }
+
     
-    return { workMinutes, workSeconds, breakMinutes, breakSeconds, paused, isWorking, restart, pause};
+    return { workMinutes, workSeconds, breakMinutes, breakSeconds, paused, isWorking, restart, pause, swap};
     
 }
 

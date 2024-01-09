@@ -7,7 +7,7 @@ import Palette from './components/Palette';
 import useColorCycle from './hooks/ColorCycle';
 
 function App() {
-  const { workMinutes, workSeconds, breakMinutes, breakSeconds, paused, isWorking, restart, pause } = useCountdown();
+  const { workMinutes, workSeconds, breakMinutes, breakSeconds, paused, isWorking, restart, pause, swap} = useCountdown();
   const { ringColor, shadow, bg, color, handleColorChange} = useColorCycle();
   return (
     <div className={`
@@ -23,7 +23,7 @@ function App() {
       gap-y-10 ` + bg
       }>
       <h className="text-3xl">pomodoro</h>
-      <Display shadow={shadow} color={color} wMins={workMinutes} wSecs={workSeconds} bMins={breakMinutes} bSecs={breakSeconds}/>
+      <Display swap={swap} shadow={shadow} color={color} wMins={workMinutes} wSecs={workSeconds} bMins={breakMinutes} bSecs={breakSeconds}/>
       <TimerContainer rColor={ringColor} shadow={shadow} color={color} isWorking={isWorking} wMins={workMinutes} wSecs={workSeconds} bMins={breakMinutes} bSecs={breakSeconds}/>
       <PauseRestart restart={restart} pause={pause} paused={paused}/>   
       <Palette colorChange={handleColorChange} />
